@@ -1,3 +1,8 @@
 myst-nb
 sphinx-autoapi
 sphinx-rtd-theme
+requests
+pandas
+ratelimit
+python
+pytest
