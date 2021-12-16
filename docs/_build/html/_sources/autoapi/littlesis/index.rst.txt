@@ -1,0 +1,23 @@
+:py:mod:`littlesis`
+===================
+
+.. py:module:: littlesis
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   littlesis/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   
+
+   
+
