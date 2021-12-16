@@ -6,7 +6,7 @@ from ratelimit import sleep_and_retry
 
 def id_to_name(x):
     """
-    Converts from LittleSis ID number to name.
+    Converts from LittleSis ID number to name. 
     
     Parameters
     ----------
@@ -26,7 +26,8 @@ def id_to_name(x):
 
 def name_to_id(name):
     """
-    Converts from name to LittleSis ID number
+    Converts from name to LittleSis ID number. Resorts to entity with the highest number of relationships listed for entries that
+    point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -47,7 +48,8 @@ def name_to_id(name):
 def entity(name): 
     """
     Provides info from entity get request to LittleSis API, by name input rather than id 
-    input as is required in original get request format, in JSON format.
+    input as is required in original get request format, in JSON format. Resorts to entity with the highest number of relationships listed
+    for entries that point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -93,7 +95,8 @@ def entity(name):
 def relationships(name): 
     """
     Provides info from relationships get request to LittleSis API, by name input rather
-    than id input as is required in original get request format, in JSON format.
+    than id input as is required in original get request format, in JSON format. Resorts to entity with the highest number of
+    relationships listed for entries that point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -126,7 +129,8 @@ def relationships(name):
 def basic_entity(name): 
     """
     Creates pandas dataframe for one individual or entity with basic information from
-    entity get request to LittleSis API. 
+    entity get request to LittleSis API. Resorts to entity with the highest number of relationships listed for entries that
+    point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -167,7 +171,8 @@ def basic_entity(name):
 def list_entities(*args):
     """
     Concatenates dataframes created by basic_table() for entity get requests to LittleSis
-    API, resulting in pandas dataframe of multiple rows. 
+    API, resulting in pandas dataframe of multiple rows. Resorts to entity with the highest number of relationships listed for entries
+    that point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -252,7 +257,8 @@ def relationships_df(name):
 def timelines(name): 
     """
     Creates dataframe specifically from timeline information of relationships from
-    relationships get request on LittleSis API.
+    relationships get request on LittleSis API. Resorts to entity with the highest number of relationships listed for entries that
+    point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -291,7 +297,8 @@ def timelines(name):
 
 def bio(name): 
     """
-    Provides paragraph biography/background description of 1 individual or entity from an entity get request on LittleSis API. 
+    Provides paragraph biography/background description of 1 individual or entity from an entity get request on LittleSis API. Resorts to
+    entity with the highest number of relationships listed for entries that point to multiple entites (like last name only entries). 
     
     Parameters
     ----------
@@ -324,7 +331,8 @@ def bio(name):
 def lists(name): 
     """
     Provides list of all lists that the entity belongs to on the LittleSis website, from a
-    LittleSis lists get request.
+    LittleSis lists get request. Resorts to entity with the highest number of relationships listed for entries that
+    point to multiple entites (like last name only entries). 
     
     Parameters
     ---------
@@ -357,7 +365,8 @@ def lists_w_descriptions(name):
     """
     Provides list of lists to which the entity belongs on the LittleSis website, from a
     lists get request to the API, with added descriptions for the lists included if they
-    exist on the site. 
+    exist on the site. Resorts to entity with the highest number of relationships listed for entries that
+    point to multiple entites (like last name only entries). 
     
     Parameters
     ---------
@@ -397,7 +406,8 @@ def lists_w_descriptions(name):
 def relationship_blurbs(name): 
     """
     Provides a list of blurbs from the relationship get request to the LittleSis API,
-    allowing for inspection of all relationships for the requested entity. 
+    allowing for inspection of all relationships for the requested entity. Resorts to entity with the highest number of relationships
+    listed for entries that point to multiple entites (like last name only entries). 
     
     Parameters
     ---------
@@ -438,7 +448,8 @@ def relationship_blurbs_w_amounts(name):
     """
     Provides a list of blurbs from the relationship get request to the LittleSis API,
     allowing for inspection of all relationships for the requested entity, and includes number amounts of donation size alongside each
-    blurb.
+    blurb. Resorts to entity with the highest number of relationships listed for entries that point to multiple entites (like last name
+    only entries). 
     
     Parameters
     ---------
