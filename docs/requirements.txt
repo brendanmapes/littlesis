@@ -4,5 +4,4 @@ sphinx-rtd-theme
 requests
 pandas
 ratelimit
-python
 pytest
