@@ -11,4 +11,4 @@ build:
   install:
     - requirements: docs/requirements.txt
     - method: pip
-      path: .
+      path: brendanmapes/littlesis
