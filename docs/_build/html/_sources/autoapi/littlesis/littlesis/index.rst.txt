@@ -1,0 +1,314 @@
+:py:mod:`littlesis.littlesis`
+=============================
+
+.. py:module:: littlesis.littlesis
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   littlesis.littlesis.id_to_name
+   littlesis.littlesis.name_to_id
+   littlesis.littlesis.entity
+   littlesis.littlesis.relationships
+   littlesis.littlesis.basic_entity
+   littlesis.littlesis.list_entities
+   littlesis.littlesis.id_to_name
+   littlesis.littlesis.relationships_df
+   littlesis.littlesis.timelines
+   littlesis.littlesis.bio
+   littlesis.littlesis.lists
+   littlesis.littlesis.lists_w_descriptions
+   littlesis.littlesis.relationship_blurbs
+   littlesis.littlesis.relationship_blurbs_w_amounts
+
+
+
+.. py:function:: id_to_name(x)
+
+   Converts from LittleSis ID number to name.
+
+   :param x:
+   :type x: LittleSis ID number
+
+   .. rubric:: Example
+
+   >>> id_to_name(96583)
+   'Ted Cruz'
+
+
+.. py:function:: name_to_id(name)
+
+   Converts from name to LittleSis ID number
+
+   :param name:
+   :type name: Name to be converted
+
+   .. rubric:: Example
+
+   >>> name_to_id('Ted Cruz')
+   96583
+
+
+.. py:function:: entity(name)
+
+   Provides info from entity get request to LittleSis API, by name input rather than id
+   input as is required in original get request format, in JSON format.
+
+   :param name:
+   :type name: Name of 1 individual or organization for which information is desired.
+
+   .. rubric:: Example
+
+   >>> entity('Barack Obama'
+   {'meta': {'copyright': 'LittleSis CC BY-SA 4.0',
+     'license': 'https://creativecommons.org/licenses/by-sa/4.0/',
+     'apiVersion': '2.0'},
+    'data': {'type': 'entities',
+     'id': 13503,
+     'attributes': {'id': 13503,
+      'name': 'Barack Obama',
+      'blurb': '44th President of the United States',
+      'summary': 'The 44th President of the United States, he was sworn into office on January 20, 2009; born in Honolulu, Hawaii, August
+      4, 1961; obtained early education in Jakarta, Indonesia, and Hawaii; continued education at Occidental College, Los Angeles,
+      Calif.; received a B.A. in 1983 from Columbia University, New York City; worked as a community organizer in Chicago, Ill.; studied
+      law at Harvard University, where he became the first African American president of the Harvard Law Review, and received J.D. in
+      1991; lecturer on constitutional law, University of Chicago; member, Illinois State senate 1997-2004; elected as a Democrat to the
+      U.S. Senate in 2004 for term beginning January 3, 2005.',
+     'website': 'http://obama.senate.gov/',
+      'parent_id': None,
+      'primary_ext': 'Person',
+      'updated_at': '2021-12-15T21:28:15Z',
+      'start_date': '1961-08-04',
+      'end_date': None,
+      'aliases': ['Barack Obama'],
+      'types': ['Person', 'Political Candidate', 'Elected Representative']},
+     'links': {'self': 'https://littlesis.org/entities/13503-Barack_Obama'}}}
+
+
+.. py:function:: relationships(name)
+
+   Provides info from relationships get request to LittleSis API, by name input rather
+   than id input as is required in original get request format, in JSON format.
+
+   :param name:
+   :type name: name: Name of 1 individual or organization for which information is desired.
+
+   .. rubric:: Example
+
+   >>>relationships('Steve Jobs')
+   {'meta': {'currentPage': 1,
+     'pageCount': 1,
+     'copyright': 'LittleSis CC BY-SA 4.0',
+     'license': 'https://creativecommons.org/licenses/by-sa/4.0/',
+     'apiVersion': '2.0'},
+    'data': [{'type': 'relationships',
+      'id': 1643319,
+      'attributes': {'id': 1643319,...
+
+
+.. py:function:: basic_entity(name)
+
+   Creates pandas dataframe for one individual or entity with basic information from
+   entity get request to LittleSis API.
+
+   :param name:
+   :type name: Name of 1 information or entity for which information is desired.
+
+   .. rubric:: Example
+
+   >>> basic_table('Steve Jobs')
+   info        name                                            aliases      0     Steve Jobs  [Steven P Jobs, Steve Jobs, Mr Steven "Steve P...
+
+   info                         blurb date_of_birth    end_date      0     Apple co-founder, former CEO    1955-02-24  2011-10-05
+
+   info                      types  website
+   0     [Person, Business Person]      NaN
+
+
+.. py:function:: list_entities(*args)
+
+   Concatenates dataframes created by basic_table() for entity get requests to LittleSis
+   API, resulting in pandas dataframe of multiple rows.
+
+   :param \*args:
+   :type \*args: List of names of individuals or entities for which to include information in
+   :param the resluting dataframe.:
+
+   .. rubric:: Example
+
+   >>> list_table('Steve Jobs', 'Lebron James')
+   info          name                                            aliases      0       Steve Jobs  [Steven P Jobs, Steve Jobs, Mr Steven "Steve P...
+   1     LeBron James                                     [LeBron James]
+
+   info                         blurb date_of_birth    end_date      0     Apple co-founder, former CEO    1955-02-24  2011-10-05
+   1         NBA/Los Angeles Lakers—F    1984-12-30         NaN
+
+   info                                         types  website
+   0                        [Person, Business Person]      NaN
+   1     [Person, Business Person, Media Personality]      NaN
+
+
+.. py:function:: id_to_name(x)
+
+
+.. py:function:: relationships_df(name)
+
+   Creates pandas dataframe with information from relationships get request to LittleSis
+   API.
+
+   :param name:
+   :type name: Name of one individual or organization for which relationship information is
+   :param desired and included in the dataframe.:
+
+   .. rubric:: Example
+
+   >>> relationships_df('Lebron James')
+                            primary_entity   related_entity amount currency      0                Children’s Aid Society     LeBron James   None     None
+   1                Savannah Brinson James     LeBron James   None     None
+   ...
+                     category goods filings      0                      None  None    None
+   ...
+
+
+.. py:function:: timelines(name)
+
+   Creates dataframe specifically from timeline information of relationships from
+   relationships get request on LittleSis API.
+
+   :param name:
+   :type name: Name of one individual or organization for which relationship information is
+   :param desired and included in the dataframe.:
+
+   .. rubric:: Example
+
+   >>> timelines('LeBron James')
+   earched_entity   related_entity  start_date      0                Children’s Aid Society     LeBron James        None
+   1                Savannah Brinson James     LeBron James        None
+   ...
+     end_date is_current
+   0         None       None
+   1         None       None
+   ...
+
+
+.. py:function:: bio(name)
+
+   Provides paragraph biography/background description of 1 individual or entity from an entity get request on LittleSis API.
+
+   :param name:
+   :type name: Name of one individual or organization for which biographical information is desired.
+
+   .. rubric:: Example
+
+   >>> bio('Barack Obama')
+   'The 44th President of the United States, he was sworn into office on January 20,
+   2009; born in Honolulu, Hawaii, August 4, 1961; obtained early education in Jakarta,
+   Indonesia, and Hawaii; continued education at Occidental College, Los Angeles, Calif.;
+   received a B.A. in 1983 from Columbia University, New York City; worked as a community
+   organizer in Chicago, Ill.; studied law at Harvard University, where he became the
+   first African American president of the Harvard Law Review, and received J.D. in 1991;
+   lecturer on constitutional law, University of Chicago; member, Illinois State senate
+   1997-2004; elected as a Democrat to the U.S. Senate in 2004 for term beginning January
+   3, 2005.'
+
+
+.. py:function:: lists(name)
+
+   Provides list of all lists that the entity belongs to on the LittleSis website, from a
+   LittleSis lists get request.
+
+   :param name:
+   :type name: Name of one individual or organization for which relationship information is
+   :param desired and included in the list of list memberships is desired.:
+
+   .. rubric:: Example
+
+   >>> lists('Lebron James')
+   Bloomberg Business Week Most Powerful Athletes (2011)
+   The World's Highest Paid Celebrities (2017)
+
+
+.. py:function:: lists_w_descriptions(name)
+
+   Provides list of lists to which the entity belongs on the LittleSis website, from a
+   lists get request to the API, with added descriptions for the lists included if they
+   exist on the site.
+
+   :param name:
+   :type name: Name of one individual or organization for which list of list membership is
+   :param desired.:
+
+   .. rubric:: Example
+
+   >>> lists_w_descriptions('Lebron James')
+   Bloomberg Business Week Most Powerful Athletes (2011) (description: The 100 most
+   powerful athletes on and off the field. No coaches, owners, managers, executives or
+   retired athletes were considered. Off-field metrics included the results of polls on
+   individual athletes by E-Poll Market Research and estimated endorsement dollars. On
+   field metrics were tallied on those who outscored, out-tackled, or outskated the
+   competition during 2009 and 2010. Sports were weighted according to their popularity
+   in the U.S. )
+   The World's Highest Paid Celebrities (2017) (description: FORBES' annual ranking of
+   the highest-earning entertainers in the world, published June 12 2017. The list
+   evaluates front of camera talent; fees for agents, managers and lawyers are not
+   deducted. )
+
+
+.. py:function:: relationship_blurbs(name)
+
+   Provides a list of blurbs from the relationship get request to the LittleSis API,
+   allowing for inspection of all relationships for the requested entity.
+
+   :param name:
+   :type name: Name of one individual or organization for which relationship information is
+   :param desired and included in the list.:
+
+   .. rubric:: Example
+
+   >>> relationship_blurbs('Lebron James')
+   LeBron James  gave money to  Children’s Aid Society
+   LeBron James  and  Savannah Brinson James  are/were in a family
+   LeBron James  and  Rich Paul  are/were business partners
+   Randy Mims  and  LeBron James  have/had a professional relationship
+   LeBron James  has a position (Founder  ) at  James Family Foundation
+   Maverick Carter  and  LeBron James  are/were business partners
+   LeBron James  is an owner of  Blaze Pizza LLC
+   LeBron James  has a position (Co founder  ) at  Klutch Sports
+   LeBron James  gave money to  Democratic National Committee
+   LeBron James  gave money to  Democratic White House Victory Fund
+   Aaron Goodwin  and  LeBron James  have/had a professional relationship
+
+
+.. py:function:: relationship_blurbs_w_amounts(name)
+
+   Provides a list of blurbs from the relationship get request to the LittleSis API,
+   allowing for inspection of all relationships for the requested entity, and includes number amounts of donation size alongside each
+   blurb.
+
+   :param name:
+   :type name: Name of one individual or organization for which relationship information is
+   :param desired and included in the list.:
+
+   .. rubric:: Example
+
+   >>> relationship_blurbs_w_amounts('Lebron James')
+   LeBron James  gave money to  Children’s Aid Society  None
+   LeBron James  and  Savannah Brinson James  are/were in a family None
+   LeBron James  and  Rich Paul  are/were business partners None
+   Randy Mims  and  LeBron James  have/had a professional relationship None
+   LeBron James  has a position (Founder  ) at  James Family Foundation  None
+   Maverick Carter  and  LeBron James  are/were business partners None
+   LeBron James  is an owner of  Blaze Pizza LLC  None
+   LeBron James  has a position (Co founder  ) at  Klutch Sports  None
+   LeBron James  gave money to  Democratic National Committee  20000
+   LeBron James  gave money to  Democratic White House Victory Fund  20000
+   Aaron Goodwin  and  LeBron James  have/had a professional relationship None
+
+
