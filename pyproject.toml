@@ -5,6 +5,9 @@ description = "Python wrapper for the LittleSis API."
 authors = ["Brendan Mapes"]
 license = "MIT"
 readme = "README.md"
+documentation = 'https://littlesis.readthedocs.io/en/main/'
+homepage = "https://github.com/brendanmapes/littlesis"
+repository = "https://github.com/brendanmapes/littlesis"
 
 [tool.poetry.dependencies]
 python = "^3.9"
