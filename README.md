@@ -149,6 +149,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 `littlesis` was created by Brendan Mapes. It is licensed under the terms of the MIT license. See below.
 
 Copyright (c) 2021 Brendan Mapes
+
 MIT License:
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
