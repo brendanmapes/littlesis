@@ -175,4 +175,4 @@ SOFTWARE.
 `littlesis` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
 
 ## Further Guidance
-View more in depth usage guide [here](https://littlesis.readthedocs.io/en/latest/autoapi/littlesis/littlesis/index.html).
+View more in depth usage guide [here](https://littlesis.readthedocs.io/en/latest/autoapi/littlesis/littlesis/index.html). View vignettes for demonstration of package functionality [here](https://github.com/brendanmapes/littlesis/tree/main/vignettes)
