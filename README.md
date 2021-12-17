@@ -42,9 +42,9 @@ entity('Barack Obama')
 ```
 This returns a JSON of an entity get request to the LittleSis API, which includes basic information on who/what the entity is. Originally, get requests to this API require knowledge of the ID for each entity, but this function allows for entry of entities by name instead.
 
-#### relationship()
+#### relationships()
 ```python
-relationship('Barack Obama')
+relationships('Barack Obama')
 ```
 This returns a JSON of a relationship get request to the LittleSis API, which includes a list of related entities to the individual entered in the function, and information on the nature of each of those relationships. Again, this function avoids the necessity of knowledge for the ID for a given entity in the original API requests, and allows for entry of entities by name. As with all functions in this package, shortened versions of the names used in the function (last names) will call for information on the entity that has the highest number of relationships documented in the database. 
 
