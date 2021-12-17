@@ -197,7 +197,7 @@ def list_entities(*args):
     
     list_of_dfs = []
     for name in args:
-        df = basic_table(name)
+        df = basic_entity(name)
         list_of_dfs.append(df)
     combined_df = pd.concat(list_of_dfs, ignore_index=True)
     return combined_df
