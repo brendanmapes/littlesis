@@ -1,5 +1,6 @@
 # littlesis
 [![MIT License](https://img.shields.io/npm/l/starwars-names.svg?style=flat-square)](http://test.pypi.org/project/littlesis/)
+[![travis build](https://img.shields.io/travis/kentcdodds/starwars-names.svg?style=flat-square)](https://littlesis.readthedocs.io/en/latest/autoapi/littlesis/littlesis/index.html)
 
 Python wrapper for the LittleSisAPI. Makes using the LittleSis API more efficient for the Python user, and allows for simpler data exploration on API calls, specifically get requests. View the docs for the LittleSis API [here](https://littlesis.org/api) to better understand exactly the types of get requests this package performs.
 
