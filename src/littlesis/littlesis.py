@@ -176,8 +176,7 @@ def list_entities(*args):
     
     Parameters
     ----------
-    *args: List of names of individuals or entities for which to include information in
-    the resluting dataframe. 
+    *args: List of names of individuals or entities for which to include information in the resluting dataframe. 
     
     Example
     -------
