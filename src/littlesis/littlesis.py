@@ -10,7 +10,7 @@ def id_to_name(x):
     
     Parameters
     ----------
-    x  LittleSis ID number
+    x : LittleSis ID number
     
     Example
     -------
