@@ -104,7 +104,7 @@ def relationships(name):
     
     Example
     -------
-    >>>relationships('Steve Jobs')
+    >>> relationships('Steve Jobs')
     {'meta': {'currentPage': 1,
       'pageCount': 1,
       'copyright': 'LittleSis CC BY-SA 4.0',
@@ -112,7 +112,7 @@ def relationships(name):
       'apiVersion': '2.0'},
      'data': [{'type': 'relationships',
        'id': 1643319,
-       'attributes': {'id': 1643319,...
+       'attributes': {'id': 1643319,...}}}
     """
     
     path = 'https://littlesis.org/api/entities/search?q={}'.format(name)
@@ -139,14 +139,14 @@ def basic_entity(name):
     Example
     -------
     >>> basic_table('Steve Jobs')
-    info        name                                            aliases  \
+    {info        name                                            aliases  \
     0     Steve Jobs  [Steven P Jobs, Steve Jobs, Mr Steven "Steve P...   
 
     info                         blurb date_of_birth    end_date  \
     0     Apple co-founder, former CEO    1955-02-24  2011-10-05   
 
     info                      types  website  
-    0     [Person, Business Person]      NaN  
+    0     [Person, Business Person]      NaN  }
     """
     
     path = 'https://littlesis.org/api/entities/search?q={}'.format(name)
@@ -182,7 +182,7 @@ def list_entities(*args):
     Example
     -------
     >>> list_table('Steve Jobs', 'Lebron James')
-    info          name                                            aliases  \
+    {info          name                                            aliases  \
     0       Steve Jobs  [Steven P Jobs, Steve Jobs, Mr Steven "Steve P...   
     1     LeBron James                                     [LeBron James]   
 
@@ -192,7 +192,7 @@ def list_entities(*args):
 
     info                                         types  website  
     0                        [Person, Business Person]      NaN  
-    1     [Person, Business Person, Media Personality]      NaN  
+    1     [Person, Business Person, Media Personality]      NaN  }
     """
     
     list_of_dfs = []
