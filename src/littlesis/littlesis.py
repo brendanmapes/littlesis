@@ -100,7 +100,7 @@ def relationships(name):
     
     Parameters
     ----------
-    name: name: Name of 1 individual or organization for which information is desired.
+    name: Name of 1 individual or organization for which information is desired.
     
     Example
     -------
